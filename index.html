@@ -3,17 +3,38 @@
   <head>
     <title>My first Vue app</title>
     <script src="https://unpkg.com/vue"></script>
+    <style>
+      .corMarron {
+        color: brown;
+      }
+      .corLaranja {
+        color: orange;
+      }
+      .corGreen {
+        color: green;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
-      {{ message }}
+      <!-- v-model -->
+      <p>
+        <input type="text" v-model:value="nome" placeholder="Seu nome" />
+      </p>
+      Nome: {{ nome }}
+
+      <!-- v-bind -->
+      <p :class="style">
+        Estilizar meu texto
+      </p>
     </div>
 
     <script>
       var app = new Vue({
         el: "#app",
         data: {
-          message: "Teste aqui!"
+          nome: "",
+          style: ["corLaranja", { corGreen: false }]
         }
       });
     </script>
